@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu título aquí</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="form-container">
+        <form action="{{ url_for('submit') }}" method="post">
+            <label for="tipo">¿Qué tipo de auriculares prefieres?</label>
+            <select id="tipo" name="tipo">
+                <option value="in-ear">In-ear</option>
+                <option value="over-ear">Over-ear</option>
+                <option value="on-ear">On-ear</option>
+            </select>
+
+            <label for="uso">¿Cuál es el principal uso que le darás a tus auriculares?</label>
+            <select id="uso" name="uso">
+                <option value="musica">Música</option>
+                <option value="deporte">Deporte</option>
+                <option value="gaming">Gaming</option>
+            </select>
+
+            <label for="calidad_sonido">¿Qué importancia le das a la calidad del sonido?</label>
+            <select id="calidad_sonido" name="calidad_sonido">
+                <option value="alta">Alta</option>
+                <option value="media">Media</option>
+                <option value="baja">Baja</option>
+            </select>
+
+            <label for="comodidad">¿Qué importancia le das a la comodidad y ajuste de los auriculares?</label>
+            <select id="comodidad" name="comodidad">
+                <option value="alta">Alta</option>
+                <option value="media">Media</option>
+                <option value="baja">Baja</option>
+            </select>
+
+            <label for="bateria">¿Qué importancia le das a la duración de la batería?</label>
+            <select id="bateria" name="bateria">
+                <option value="alta">Alta</option>
+                <option value="media">Media</option>
+                <option value="baja">Baja</option>
+            </select>
+
+            <label for="presuspuesto">¿Cuál es tu presupuesto estimado?</label>
+            <select id="presuspuesto" name="presupuesto">
+                <option value="bajo">Bajo</option>
+                <option value="medio">Medio</option>
+                <option value="alto">Alto</option>
+            </select>
+
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+</body>
+</html>
