@@ -93,3 +93,23 @@ input[type="radio"]:hover {
 input[type="radio"] {
     opacity: 0.7;
 }
+
+.product-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 50px;
+}
+
+.product-image {
+    width: 300px;
+    height: auto;
+    margin-right: 50px;
+}
+
+.product-details {
+    flex: 1;
+}

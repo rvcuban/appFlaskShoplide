@@ -1,0 +1,37 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+}
+
+.productos-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.producto {
+    width: 50%;
+    margin: 1%;
+    padding: 2%;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.producto img {
+    width: 70%;
+    height: auto;
+}
+
+.boton-comprar {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #2196f3;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+    border-radius: 5px;
+}
