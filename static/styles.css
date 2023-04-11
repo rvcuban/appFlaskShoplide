@@ -113,3 +113,9 @@ input[type="radio"] {
 .product-details {
     flex: 1;
 }
+
+.famouse-users {
+    list-style-type: disc;
+    padding-left: 20px;
+    text-align: left;
+}

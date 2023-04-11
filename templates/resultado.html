@@ -9,12 +9,29 @@
 <body>
     <div class="productos-container">
         {% for producto in productos %}
-            <div class="producto">
-                <h1>{{ producto.nombre }}</h1>
-                <img src="{{ producto.imagen }}" alt="{{ producto.nombre }}" />
-                <p>{{ producto.descripcion }}</p>
-                <a href="{{ producto.url }}" class="boton-comprar" target="_blank">Comprar</a>
+        <div class="producto">
+            <div style="width: 30%;">
+                <img src="{{ producto.imagen }}" alt="{{ producto.nombre }}">
+                <p>Este producto es: {{ producto.similitud }} % lo que buscas</p>
             </div>
+            <div style="width: 70%;">
+                <div style="display: flex; justify-content: space-between;">
+                    <div style="width: 50%;">
+                        <h1>{{ producto.nombre }}</h1>
+                        <h2>Descripción</h2>
+                        <p>{{ producto.descripcion }}</p>
+                        <h2>Recomendado por</h2>
+                        <p>{{ producto.famosos }}</p>
+                    </div>
+                    <div style="width: 50%;">
+                        <iframe src="{{ producto.youtubeVideo }}" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div>
+                    <a href="{{ producto.url}}" class="boton-comprar">Comprar ahora</a>
+                </div>
+            </div>
+        </div>
         {% endfor %}
     </div>
 </body>
