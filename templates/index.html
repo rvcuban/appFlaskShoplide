@@ -4,55 +4,106 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tu título aquí</title>
+    <!-- CSS de Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='navbar.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/x-icon">
 </head>
 <body>
-    <div class="form-container">
-        <form action="{{ url_for('submit') }}" method="post">
-            <label for="tipo">¿Qué tipo de auriculares prefieres?</label>
-            <select id="tipo" name="tipo">
-                <option value="in-ear">In-ear</option>
-                <option value="over-ear">Over-ear</option>
-                <option value="on-ear">On-ear</option>
-            </select>
-
-            <label for="uso">¿Cuál es el principal uso que le darás a tus auriculares?</label>
-            <select id="uso" name="uso">
-                <option value="musica">Música</option>
-                <option value="deporte">Deporte</option>
-                <option value="gaming">Gaming</option>
-            </select>
-
-            <label for="calidad_sonido">¿Qué importancia le das a la calidad del sonido?</label>
-            <select id="calidad_sonido" name="calidad_sonido">
-                <option value="alta">Alta</option>
-                <option value="media">Media</option>
-                <option value="baja">Baja</option>
-            </select>
-
-            <label for="comodidad">¿Qué importancia le das a la comodidad y ajuste de los auriculares?</label>
-            <select id="comodidad" name="comodidad">
-                <option value="alta">Alta</option>
-                <option value="media">Media</option>
-                <option value="baja">Baja</option>
-            </select>
-
-            <label for="bateria">¿Qué importancia le das a la duración de la batería?</label>
-            <select id="bateria" name="bateria">
-                <option value="alta">Alta</option>
-                <option value="media">Media</option>
-                <option value="baja">Baja</option>
-            </select>
-
-            <label for="presuspuesto">¿Cuál es tu presupuesto estimado?</label>
-            <select id="presuspuesto" name="presupuesto">
-                <option value="bajo">Bajo</option>
-                <option value="medio">Medio</option>
-                <option value="alto">Alto</option>
-            </select>
-
-            <input type="submit" value="Enviar">
-        </form>
+  <div style="margin-top: -90px;">
+    <div style="text-align: center;">
+        <img src="{{ url_for('static', filename='img/nexa_logo.png') }}" alt="Descripción de la imagen" style="width: 400px;">
     </div>
-</body>
-</html>
+     <div class="form-container">
+         <!-- Animacion de carga -->
+        <div id="loader" class="loader" style="display: none;"></div>
+
+        <form action="{{ url_for('submit') }}" method="post">
+            <div class="infopersonal">
+                <label for="preferencias"></label>
+                <div>Escribe tus preferencias:</div>
+                <textarea id="preferencias" name="preferencias" rows="4" cols="50"></textarea>
+                 </div>
+
+
+            <div class="question-container">
+                <div class="label-container">
+                    <label for="Tamano_de_pantalla">¿Qué Tamaño de pantalla prefieres?</label>
+                    <select id="Tamano_de_pantalla" name="Tamano_de_pantalla">
+                        <option value="Grande">Grande</option>
+                        <option value="Mediana">Mediana</option>
+                        <option value="Pequeno">Pequeño</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="question-container">
+                <div class="label-container">
+                    <label for="Calidad_de_camara">¿Calidad de camara?</label>
+                    <select id="Calidad_de_camara" name="Calidad_de_camara">
+                        <option value="Muy_bueno">Muy bueno</option>
+                        <option value="Bueno">Bueno</option>    
+                        <option value="Basico">Básico</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="question-container">
+                <div class="label-container">
+                    <label for="bateria">¿Qué importancia le das a la duración de la batería?</label>
+                    <select id="bateria" name="bateria">
+                        <option value="Muy_bueno">Muy bueno</option>
+                        <option value="Bueno">Bueno</option>    
+                        <option value="Basico">Básico</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="question-container">
+                <div class="label-container">
+                    <label for="Rendimiento">¿Qué importancia le das al rendimiento?</label>
+                    <select id="Rendimiento" name="Rendimiento">
+                        <option value="Muy_bueno">Muy bueno</option>
+                        <option value="Bueno">Bueno</option>    
+                        <option value="Basico">Básico</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="question-container">
+                <div class="label-container">
+                    <label for="calidad_const">¿Qué importancia le das al estilo y materiales?</label>
+                    <select id="calidad_const" name="calidad_const">
+                        <option value="Muy_bueno">Muy bueno</option>
+                        <option value="Bueno">Bueno</option>    
+                        <option value="Basico">Básico</option>
+                    </select>
+                    </div>
+                    </div>
+                            <div class="question-container">
+                                <div class="label-container">
+                                    <label for="presuspuesto">¿Qué rango de precio prefieres?</label>
+                                    <select id="presuspuesto" name="presupuesto">
+                                        <option value="Gama_alta">Gama alta</option>
+                                        <option value="Gama_media">Gama media</option>
+                                        <option value="Gama_baja">Gama baja</option>
+                                    </select>
+                                </div>
+                            </div>
+                    
+                            <input type="submit" value="Enviar">
+                        </form>
+                    </div>
+                      </div>
+                      <!-- jQuery -->
+                      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+                      <!-- Popper.js -->
+                      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+                      <!-- JavaScript de Bootstrap -->
+                      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+                       <!-- animaciones -->
+                     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+                    </body>
+                    </html>

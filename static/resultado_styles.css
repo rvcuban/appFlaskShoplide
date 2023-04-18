@@ -1,3 +1,7 @@
+/* Código completo en español */
+/* Este código es una tienda fea, mejora el css para que se vea como Amazon */
+
+/* Estilos generales */
 body {
     font-family: Arial, sans-serif;
     background-color: white;
@@ -12,39 +16,46 @@ body {
     justify-content: center;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem;
+    margin-bottom: 4rem;
 }
 
 .producto {
     width: 100%;
+    background-color: #fff;
     display: flex;
     flex-wrap: wrap;
-    background-color: #fff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     padding: 2rem;
     margin-bottom: 2rem;
 }
 
+
+.producto .img-container {
+    width: 30%;
+}
+
 .producto img {
-    width: 250px;
-    height: 250px;
-    object-fit: cover;
-    margin-right: 1.5rem;
+    width: 100%;
+    height: auto;
+    display: block;  /* Añadir esta línea */
+    margin: 0;       /* Añadir esta línea */
     border-radius: 4px;
+  
 }
 
 .producto .product-info {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 100%;
 }
 
 .producto h1 {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
     color: #333;
+    text-align: center;
 }
 
 .producto p {
@@ -70,26 +81,187 @@ body {
     background-color: #000;
 }
 
+.buy-video-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
 iframe {
     width: 100%;
     height: 315px;
     margin-top: 1rem;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .producto {
-        flex-direction: column;
+.flecha-regresar {
+    position: fixed;
+    z-index: 1000;
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: #333;
+    left: 1rem;
+    top: 1rem;
+    transition: color 0.3s;
+}
+
+.flecha-regresar:hover {
+    color: #666;
+}
+
+
+.producto .chatgpt_respuesta {
+    width: 40%;
+    padding-left: 1rem;
+    margin-top: -15rem;
+}
+
+.chatgpt_respuesta p,
+.producto p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #666;
+    margin-bottom: 1.5rem;
+    text-align: justify; /* Añade justificación al texto */
+    text-justify: inter-word; /* Mejora la justificación en navegadores compatibles */
+}
+/*
+/* animaciones */
+.loader {
+    display: inline-block;
+    border: 4px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 4px solid #3498db;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Estilos para dispositivos móviles */
+/* Estilos para dispositivos móviles */
+@media only screen and (max-width : 900px) {
+    .productos-container {
+        padding: 1rem;
         align-items: center;
+        padding-left: 20px;
+        padding-right: 20px;
     }
 
-    .producto img {
+
+    .flecha-regresar {
+        top: 1.5rem;
+        font-size: 1.2rem;
+    }
+    .producto {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+        margin-bottom: 3rem; /* Aumenta el margen inferior para separar los productos */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .producto .img-container {
         width: 100%;
-        height: auto;
         margin-right: 0;
+        margin-bottom: 1rem;
     }
 
     .producto .product-info {
-        align-items: center;
+        width: 100%;
+        text-align: center;
+        padding: 0 1rem;
     }
+
+    .producto h1 {
+        display: flex;
+        font-size: 1.2rem;
+        text-align: center;
+        margin-bottom: 0.5rem;
+    }
+
+    .producto p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+        margin-bottom: 1rem;
+        text-align: justify; /* Añade justificación al texto en dispositivos móviles */
+        text-justify: inter-word; /* Mejora la justificación en navegadores compatibles */
+    }
+
+    .buy-video-container {
+        width: 100%;
+        display: flex;
+        justify-content: center; /* Asegurar que el contenedor del video esté centrado */
+    }
+
+    #video-container {
+        width: 100%;
+        max-width: 315px; /* Limitar el ancho máximo del contenedor de video */
+        height: auto;
+        position: relative;
+        padding-bottom: 56.25%;
+        margin: 0 auto; /* Centrar el contenedor del video */
+    }
+
+    #video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .producto .chatgpt_respuesta {
+        width: 100%;
+        padding-left: 0;
+        margin-top: 0; /* Elimina el margen negativo en dispositivos móviles */
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .respuesta-chatgpt, .descripcion {
+        padding-left: 20px;
+        padding-right: 20px;
+        
+    }
+}
+
+
+/* Estilos para pantallas grandes */
+@media screen and (min-width: 769px) {
+.producto {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+align-items: center;
+}
+.producto .img-container {
+    width: 30%;
+}
+
+.producto .product-info {
+    width: 70%;
+    
+}
+
+.buy-video-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.buy-video-container .description-container {
+    width: 50%;
+    text-align: center;
+}
+
+.buy-video-container .video-container {
+    width: 50%;
+    text-align: center;
+}
 }

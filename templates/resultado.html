@@ -5,34 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resultado</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='resultado_styles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/x-icon">
 </head>
 <body>
+  
+    
+    <a href="/" class="flecha-regresar">
+        <span>&larr;</span>
+    </a>
+   
     <div class="productos-container">
         {% for producto in productos %}
         <div class="producto">
-            <div style="width: 30%;">
+            <div class="img-container">
+                <h1>{{ producto.nombre }}</h1>
                 <img src="{{ producto.imagen }}" alt="{{ producto.nombre }}">
                 <p>Este producto es: {{ producto.similitud }} % lo que buscas</p>
             </div>
-            <div style="width: 70%;">
-                <div style="display: flex; justify-content: space-between;">
-                    <div style="width: 50%;">
-                        <h1>{{ producto.nombre }}</h1>
-                        <h2>Descripción</h2>
-                        <p>{{ producto.descripcion }}</p>
-                        <h2>Recomendado por</h2>
-                        <p>{{ producto.famosos }}</p>
-                    </div>
-                    <div style="width: 50%;">
+            <div class="chatgpt_respuesta">
+                <h2>Porque esta hecho para ti:</h2>
+                <p>{{ producto.chatgpt_response }}</p>
+            </div>
+            <div class="product-info">               
+                <h2>Descripción</h2>
+                <div class="descripcion">   </div>
+                <p>{{ producto.descripcion }}</p>
+                <h2>Recomendado por</h2>
+                <p>{{ producto.famosos }}</p>
+                <div class="buy-video-container">
+                    <a href="{{ producto.url}}" class="boton-comprar">Comprar ahora</a>
+                    <div id="video-container">
                         <iframe src="{{ producto.youtubeVideo }}" frameborder="0" allowfullscreen></iframe>
                     </div>
-                </div>
-                <div>
-                    <a href="{{ producto.url}}" class="boton-comprar">Comprar ahora</a>
                 </div>
             </div>
         </div>
         {% endfor %}
     </div>
+    
 </body>
 </html>
