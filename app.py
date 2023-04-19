@@ -62,7 +62,7 @@ import openai
     ) """
 
 def get_chatgpt_response(user_preferences, nombre_producto,descripcion):
-    openai.api_key = "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"
+    openai.api_key = "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"
     response = openai.Completion.create(
         engine="text-davinci-002",
         prompt=f"eres un experto en moviles necesito que des las razones por las cuales el producto {nombre_producto} es ideal para esta persona considerando sus preferencias: {user_preferences}en base a la {descripcion}del producto\n\nRespuesta:",
