@@ -61,11 +61,11 @@ import openai
         presence_penalty=0
     ) """
 
-def get_chatgpt_response(user_preferences, nombre_producto):
-    openai.api_key = "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"
+def get_chatgpt_response(user_preferences, nombre_producto,descripcion):
+    openai.api_key = "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"
     response = openai.Completion.create(
         engine="text-davinci-002",
-        prompt=f"eres un experto en moviles necesito que des las razones por las cuales el producto {nombre_producto} es ideal para esta persona considerando sus preferencias: {user_preferences}\n\nRespuesta:",
+        prompt=f"eres un experto en moviles necesito que des las razones por las cuales el producto {nombre_producto} es ideal para esta persona considerando sus preferencias: {user_preferences}en base a la {descripcion}del producto\n\nRespuesta:",
         temperature=0.7,
         max_tokens=150,
         top_p=1,
@@ -151,9 +151,10 @@ def submit():
         product_info = []
         for product in products:
              nombre = product['fields']['Modelo']
+             descripcion=product['fields']['Descripcion']
              print(f"{nombre}")
              preferencias_usuario = request.form.get("preferencias")
-             chatgpt_respuesta =  get_chatgpt_response(preferencias_usuario, nombre)
+             chatgpt_respuesta =  get_chatgpt_response(preferencias_usuario, nombre,descripcion)
              similarity = calculate_similarity(criteria, product)
              product['similarity'] = round(similarity * 100, 2)
              imagenes = product['fields'].get('imagenes')
@@ -188,4 +189,4 @@ def resultado():
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000,debug=True)
+    app.run(debug=True)
