@@ -75,7 +75,7 @@ select {
 input[type="submit"] {
     font-size: 1.1rem;
     padding: 8px 16px;
-    background-color: #4CAF50;
+    background-color: #8b45a0;
     border: none;
     color: #fff;
     cursor: pointer;
@@ -83,7 +83,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #45a049;
+    background-color: #673078;
 }
 
 .form-container {

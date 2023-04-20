@@ -31,11 +31,11 @@ value_mappings = {
 
 criteria_weights = {
     "Rendimiento":1,
-    "Tamano_de_pantalla": 1,
-    "Calidad_de_camara": 1,
-    "batería": 1,
-    "calidad_const":1,
-    "presupuesto": 4,
+    "Tamano_de_pantalla": 2.5,
+    "Calidad_de_camara": 2,
+    "batería": 2,
+    "calidad_const":0.5,
+    "presupuesto": 2.5,
 }
 criteria_ranges = {
     "Rendimiento":3,
@@ -62,7 +62,9 @@ import openai
     ) """
 
 def get_chatgpt_response(user_preferences, nombre_producto,descripcion):
-    openai.api_key = "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"
+    
+    openai.api_key = os.environ.get("OPENAI_API_KEY")  # "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"
+    
     response = openai.Completion.create(
         engine="text-davinci-002",
         prompt=f"eres un experto en moviles necesito que des las razones por las cuales el producto {nombre_producto} es ideal para esta persona considerando sus preferencias: {user_preferences}en base a la {descripcion}del producto\n\nRespuesta:",
@@ -90,7 +92,7 @@ def get_chatgpt_response(user_preferences, nombre_producto,descripcion):
 
 
 def calculate_similarity(criteria, product):
-    total_points = 0
+    total_points = 0  
     max_points = 0
     criteria_vector = []
     product_vector = []
