@@ -63,7 +63,7 @@ import openai
 
 def get_chatgpt_response(user_preferences, nombre_producto,descripcion):
     
-    openai.api_key = os.environ.get("OPENAI_API_KEY")  # "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"
+    openai.api_key = os.environ.get("OPENAI_API_KEY")  
     
     response = openai.Completion.create(
         engine="text-davinci-002",
