@@ -92,22 +92,28 @@ def get_chatgpt_response(user_preferences, nombre_producto,descripcion):
 
 
 def calculate_similarity(criteria, product):
-    total_points = 0  
+    total_points = 0
     max_points = 0
-    criteria_vector = []
-    product_vector = []
 
     for key, weight in criteria_weights.items():
         if key in product['fields']:
-            criteria_value = value_mappings[criteria[key]]
-            product_value = value_mappings[product['fields'][key]]
+            criteria_value = criteria[key]
+            product_value = product['fields'][key]
 
-            criteria_vector.append(criteria_value * weight)
-            product_vector.append(product_value * weight)
+            if isinstance(criteria_value, str):
+                if criteria_value == product_value:
+                    similarity = 1
+                else:
+                    similarity = 0
+            elif isinstance(criteria_value, (int, float)):
+                value_range = criteria_ranges[key]  # Asumiendo que hay un diccionario con los rangos de valores para cada criterio
+                similarity = 1 - (abs(criteria_value - product_value) / value_range)
 
-    # Calcular la similitud del coseno
-    similarity = np.dot(criteria_vector, product_vector) / (np.linalg.norm(criteria_vector) * np.linalg.norm(product_vector))
-    similarity_percentage = round(similarity * 100, 2)
+            total_points += similarity * weight
+
+        max_points += weight
+
+    similarity_percentage = round((total_points / max_points) * 100,2)
     return similarity_percentage
 
 
